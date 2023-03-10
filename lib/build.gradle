@@ -72,7 +72,7 @@ publishing {
     repositories {
         maven {
             name = "OSSHR"
-            url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
             credentials {
                 username = project.findProperty("osshr.user") ?: System.getenv("OSSHR_USERNAME")
                 password = project.findProperty("osshr.key") ?: System.getenv("OSSHR_TOKEN")
