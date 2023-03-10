@@ -29,7 +29,7 @@ jobs:
           java-version: ${{ matrix.java }}
           cache: gradle
       - name: Validate Gradle wrapper
-        uses: gradle/wrapper-validation-action@@v1
+        uses: gradle/wrapper-validation-action@v1
       - name: Build Java Code
         uses: gradle/gradle-build-action@v2
         with:
