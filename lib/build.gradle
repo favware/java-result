@@ -70,7 +70,14 @@ publishing {
     }
 
     repositories {
-        mavenCentral()
+        maven {
+            name = "OSSHR"
+            url = uri("https://oss.sonatype.org/service/local/staging/deploy/maven2/")
+            credentials {
+                username = project.findProperty("osshr.user") ?: System.getenv("OSSHR_USERNAME")
+                password = project.findProperty("osshr.key") ?: System.getenv("OSSHR_TOKEN")
+            }
+        }
         maven {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/favware/java8-result")
