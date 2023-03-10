@@ -432,6 +432,7 @@ class Err<T> implements Result<T> {
 	}
 
 	@Override
+	@SuppressWarnings("unchecked")
 	public <E extends Throwable> Result<T> raise(Class<E> clazz) throws E {
 		return onErr(t -> {
 			if (clazz.isAssignableFrom(t.getClass())) {
