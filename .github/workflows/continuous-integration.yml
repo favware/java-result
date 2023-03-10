@@ -15,14 +15,10 @@ jobs:
       matrix:
         os: [ubuntu-latest, macos-latest, windows-latest]
         java: [8, 11, 17]
-        java-distribution: [temurin, corretto]
-        include:
-          - java: 11
+        java-distribution: [temurin, corretto, microsoft]
+        exclude:
+          - java: 8
             java-distribution: microsoft
-            os: [ubuntu-latest, macos-latest, windows-latest]
-          - java: 17
-            java-distribution: microsoft
-            os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
       - name: Checkout Project
         uses: actions/checkout@v3
