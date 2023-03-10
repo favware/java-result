@@ -19,8 +19,10 @@ jobs:
         include:
           - java: 11
             java-distribution: microsoft
+            os: [ubuntu-latest, macos-latest, windows-latest]
           - java: 17
             java-distribution: microsoft
+            os: [ubuntu-latest, macos-latest, windows-latest]
     steps:
       - name: Checkout Project
         uses: actions/checkout@v3
