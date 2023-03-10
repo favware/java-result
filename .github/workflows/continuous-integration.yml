@@ -34,21 +34,3 @@ jobs:
         uses: gradle/gradle-build-action@v2
       - name: Run build
         run: gradle build
-
-  CodeQL:
-    name: Codequality
-    runs-on: ubuntu-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
-
-      - name: Initialize CodeQL
-        uses: github/codeql-action/init@v2
-        with:
-          languages: java
-
-      - name: Autobuild
-        uses: github/codeql-action/autobuild@v2
-
-      - name: Perform CodeQL Analysis
-        uses: github/codeql-action/analyze@v2
