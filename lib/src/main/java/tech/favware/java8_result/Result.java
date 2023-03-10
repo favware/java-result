@@ -81,6 +81,9 @@ public interface Result<T> {
 		return ofOptional(op, new IllegalArgumentException("Missing Value"));
 	}
 
+	/**
+	 * @return true if the {@link Result} is {@link Ok}
+	 */
 	boolean isOk();
 
 	/**

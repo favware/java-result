@@ -8,6 +8,10 @@ package tech.favware.java8_result;
  */
 public interface ResultSupplier<T> {
 
+	/**
+	 * @return the result of the operation
+	 * @throws Throwable the type of throwable thrown by this method
+	 */
 	@SuppressWarnings("java:S112")
 	T get() throws Throwable;
 }
