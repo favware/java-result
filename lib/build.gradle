@@ -3,9 +3,9 @@ plugins {
     id 'maven-publish'
 }
 
-version = '1.0.0'
 group = 'tech.favware'
-description = 'java8-result'
+version = '0.0.3'
+description = 'A Java8 implementation of a Result monad inspired by Rust\'s Result struct'
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
 repositories {
@@ -38,12 +38,12 @@ tasks.withType(Javadoc).configureEach {
 
 publishing {
     publications {
-        maven(MavenPublication) {
+        mavenJava(MavenPublication) {
+            artifactId = 'java8-result'
             from components.java
 
             pom {
-                name = 'java8-result'
-                packaging = 'jar'
+                name = 'Java8 Result'
                 description = 'A Java8 implementation of a Result monad inspired by Rust\'s Result struct.'
                 url = 'https://github.com/favware/java8-result/'
 
@@ -67,5 +67,27 @@ publishing {
                 }
             }
         }
+    }
+
+    repositories {
+        mavenCentral()
+        maven {
+            name = "GitHubPackages"
+            url = uri("https://maven.pkg.github.com/favware/java8-result")
+            credentials {
+                username = project.findProperty("gpr.user") ?: System.getenv("GPR_USERNAME")
+                password = project.findProperty("gpr.key") ?: System.getenv("GPR_TOKEN")
+            }
+        }
+        maven {
+            name = "Local"
+            url = layout.buildDirectory.dir('repo')
+        }
+    }
+}
+
+javadoc {
+    if (JavaVersion.current().isJava9Compatible()) {
+        options.addBooleanOption('html5', true)
     }
 }
