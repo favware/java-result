@@ -43,7 +43,19 @@ code of all open pull requests.
 
 ### Gradle
 
-TODO
+**With Gradle Groovy**
+```groovy
+dependencies {
+    implementation 'tech.favware:java8-result'
+}
+```
+
+**With Kotlin DSL**
+```kotlin
+dependencies {
+    implementation("tech.favware:java8-result")
+}
+```
 
 ## Usage
 
