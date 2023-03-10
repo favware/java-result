@@ -36,7 +36,6 @@ tasks.withType(Javadoc).configureEach {
     options.encoding = 'UTF-8'
 }
 
-
 publishing {
     publications {
         maven(MavenPublication) {
