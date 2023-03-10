@@ -82,13 +82,19 @@ publishing {
     repositories {
         maven {
             name = "OSSHR"
-//            url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots")
-            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+
+            if (project.version.endsWith('-SNAPSHOT')) {
+                url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots")
+            } else {
+                url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+            }
+
             credentials {
                 username = project.findProperty("osshr.user") ?: System.getenv("OSSHR_USERNAME")
                 password = project.findProperty("osshr.key") ?: System.getenv("OSSHR_TOKEN")
             }
         }
+
         maven {
             name = "GitHubPackages"
             url = uri("https://maven.pkg.github.com/favware/java-result")
@@ -97,6 +103,7 @@ publishing {
                 password = project.findProperty("gpr.key") ?: System.getenv("GPR_TOKEN")
             }
         }
+
         maven {
             name = "Local"
             url = layout.buildDirectory.dir('repo')
