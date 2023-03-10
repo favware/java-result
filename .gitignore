@@ -1,4 +1,4 @@
-# From https://github.com/github/gitignore/blob/master/Gradle.gitignore
+# From https://github.com/github/gitignore/blob/main/Gradle.gitignore
 .gradle
 lib/build/
 
