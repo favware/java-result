@@ -46,14 +46,14 @@ code of all open pull requests.
 **With Gradle Groovy**
 ```groovy
 dependencies {
-    implementation 'tech.favware:java8-result'
+    implementation 'tech.favware:java8-result:1.0.0'
 }
 ```
 
 **With Kotlin DSL**
 ```kotlin
 dependencies {
-    implementation("tech.favware:java8-result")
+    implementation("tech.favware:java8-result:1.0.0")
 }
 ```
 
