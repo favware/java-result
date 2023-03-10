@@ -19,9 +19,10 @@ taken straight from the original source code.
 
 ## About
 
-This library fills in the short-coming of a `Result` monad in Java 1.8. `Optional` exists to express nulls in types, but
-there is no way to express success/failure in types. `Result` to the
-rescue! The `Result` type is very similar to the `Result` in Scala's standard lib. Some inspiration is also taken from
+This library adds a `Result` monad to Java. While `Optional` exists to express nulls in types, there is no way to
+express a success/failure of a callable lambda expression. `Result` fills this gap.
+
+The `Result` type is very similar to the `Result` in Scala's standard lib. Some inspiration is also taken from
 the `Result` monad in the Rust language, and subsequently from `@sapphire/result`, the TypeScript implementation of the
 former.
 
@@ -44,6 +45,7 @@ code of all open pull requests.
 ### Gradle
 
 **With Gradle Groovy**
+
 ```groovy
 dependencies {
     implementation 'tech.favware:result:1.0.0'
@@ -51,6 +53,7 @@ dependencies {
 ```
 
 **With Kotlin DSL**
+
 ```kotlin
 dependencies {
     implementation("tech.favware:result:1.0.0")
