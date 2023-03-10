@@ -3,3 +3,6 @@ gpr.key=
 
 osshr.user=
 osshr.key=
+
+signing.key=
+signing.password=

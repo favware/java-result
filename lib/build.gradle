@@ -1,10 +1,11 @@
 plugins {
     id 'java-library'
     id 'maven-publish'
+    id 'signing'
 }
 
 group = 'tech.favware'
-version = '0.0.5-SNAPSHOT'
+version = '0.0.6-SNAPSHOT'
 description = 'A Java8 implementation of a Result monad inspired by Rust\'s Result struct'
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
@@ -34,6 +35,15 @@ tasks.withType(JavaCompile).configureEach {
 
 tasks.withType(Javadoc).configureEach {
     options.encoding = 'UTF-8'
+}
+
+signing {
+    def signingKey = project.findProperty("signing.key") ?: System.getenv("PGP_SIGNING_KEY")
+    def signingPassword = project.findProperty("signing.password") ?: System.getenv("PGP_SIGNING_PASSWORD")
+    useInMemoryPgpKeys(signingKey, signingPassword)
+
+    sign configurations.archives
+    sign publishing.publications
 }
 
 publishing {
