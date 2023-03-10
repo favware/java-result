@@ -1,6 +1,7 @@
 # From https://github.com/github/gitignore/blob/main/Gradle.gitignore
 .gradle
 lib/build/
+gradle.properties
 
 # IntelliJ
 bin/
