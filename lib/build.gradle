@@ -1,0 +1,72 @@
+plugins {
+    id 'java-library'
+    id 'maven-publish'
+}
+
+version = '1.0.0'
+group = 'tech.favware'
+description = 'java8-result'
+java.sourceCompatibility = JavaVersion.VERSION_1_8
+
+repositories {
+    mavenCentral()
+    mavenLocal()
+}
+
+test {
+    useJUnitPlatform()
+}
+
+dependencies {
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.9.2'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.9.2'
+}
+
+java {
+    withJavadocJar()
+    withSourcesJar()
+}
+
+tasks.withType(JavaCompile).configureEach {
+    options.encoding = 'UTF-8'
+    options.compilerArgs += ['-Xlint:unchecked']
+}
+
+tasks.withType(Javadoc).configureEach {
+    options.encoding = 'UTF-8'
+}
+
+
+publishing {
+    publications {
+        maven(MavenPublication) {
+            from components.java
+
+            pom {
+                name = 'java8-result'
+                packaging = 'jar'
+                description = 'A Java8 implementation of a Result monad inspired by Rust\'s Result struct.'
+                url = 'https://github.com/favware/java8-result/'
+
+                licenses {
+                    license {
+                        name = 'MIT License'
+                        url = 'https://opensource.org/licenses/MIT'
+                    }
+                }
+                developers {
+                    developer {
+                        id = 'favna'
+                        name = 'Jeroen Claassens'
+                        email = 'support@favware.tech'
+                    }
+                }
+                scm {
+                    connection = 'scm:git:git://github.com/favware/java8-result.git'
+                    developerConnection = 'scm:git:ssh://github.com:favware/java8-result.git'
+                    url = 'http://github.com/favware/java8-result/tree/main'
+                }
+            }
+        }
+    }
+}

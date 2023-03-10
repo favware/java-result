@@ -1,0 +1,14 @@
+# From https://github.com/github/gitignore/blob/master/Gradle.gitignore
+.gradle
+lib/build/
+
+# IntelliJ
+bin/
+.idea/
+.0.current
+*.iml
+*.ipr
+*.iws
+
+*.DS_Store
+Thumbs.db
