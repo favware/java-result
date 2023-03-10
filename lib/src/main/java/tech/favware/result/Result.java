@@ -1,4 +1,4 @@
-package tech.favware.java8_result;
+package tech.favware.result;
 
 import java.util.NoSuchElementException;
 import java.util.Objects;

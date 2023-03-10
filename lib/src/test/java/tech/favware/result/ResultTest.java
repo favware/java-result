@@ -1,7 +1,7 @@
-package tech.favware.java8_result;
+package tech.favware.result;
 
 import org.junit.jupiter.api.Test;
-import tech.favware.java8_result.util.RaiseException;
+import tech.favware.result.util.RaiseException;
 
 import java.util.Optional;
 

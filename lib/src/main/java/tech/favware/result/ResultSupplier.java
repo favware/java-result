@@ -1,4 +1,4 @@
-package tech.favware.java8_result;
+package tech.favware.result;
 
 /**
  * This is similar to the Java Supplier function type.

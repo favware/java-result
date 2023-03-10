@@ -1,10 +1,10 @@
 <div align="center">
 
-# java8-result
+# Result
 
-**A Java8 implementation of a Result monad inspired by Rust's Result struct**
+**A Java implementation of a Result monad inspired by Rust's Result struct**
 
-[![GitHub](https://img.shields.io/github/license/favware/java8-result)](https://github.com/favware/java8-result/blob/main/LICENSE)
+[![GitHub](https://img.shields.io/github/license/favware/java-result)](https://github.com/favware/java-result/blob/main/LICENSE)
 
 [![Support Server](https://discord.com/api/guilds/512303595966824458/embed.png?style=banner2)](https://join.favware.tech)
 
@@ -36,7 +36,7 @@ code of all open pull requests.
 ```xml
 <dependency>
     <groupId>tech.favware</groupId>
-    <artifactId>java8-result</artifactId>
+    <artifactId>result</artifactId>
     <version>1.0.0</version>
 </dependency>
 ```
@@ -46,14 +46,14 @@ code of all open pull requests.
 **With Gradle Groovy**
 ```groovy
 dependencies {
-    implementation 'tech.favware:java8-result:1.0.0'
+    implementation 'tech.favware:result:1.0.0'
 }
 ```
 
 **With Kotlin DSL**
 ```kotlin
 dependencies {
-    implementation("tech.favware:java8-result:1.0.0")
+    implementation("tech.favware:result:1.0.0")
 }
 ```
 
@@ -94,8 +94,8 @@ Please make sure to read the [Contributing Guide][contributing] before making a 
 
 Thank you to all the people who already contributed to Sapphire!
 
-<a href="https://github.com/favware/java8-result/graphs/contributors">
-  <img alt="contributors" src="https://contrib.rocks/image?repo=favware/java8-result" />
+<a href="https://github.com/favware/java-result/graphs/contributors">
+  <img alt="contributors" src="https://contrib.rocks/image?repo=favware/java-result" />
 </a>
 
 [contributing]: ./.github/CONTRIBUTING.md

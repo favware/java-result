@@ -1,4 +1,4 @@
-package tech.favware.java8_result;
+package tech.favware.result;
 
 /**
  * @param <T> the type of the input to the function

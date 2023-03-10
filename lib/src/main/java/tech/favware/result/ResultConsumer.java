@@ -1,4 +1,4 @@
-package tech.favware.java8_result;
+package tech.favware.result;
 
 /**
  * This is similar to the Java {@link java.util.function.Consumer Consumer} function type.

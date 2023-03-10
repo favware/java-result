@@ -19,5 +19,5 @@ repository and submit a pull request. We highly suggest using [IntelliJ IDEA][] 
 <!-- Link Dump -->
 
 [discord server]: https://join.favware.tech
-[here]: https://github.com/faware/java8-result/pulls
+[here]: https://github.com/faware/java-result/pulls
 [IntelliJ IDEA]: https://www.jetbrains.com/idea/
