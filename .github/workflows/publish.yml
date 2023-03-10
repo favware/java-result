@@ -20,7 +20,7 @@ jobs:
       - name: Publish Package
         uses: gradle/gradle-build-action@v2
         with:
-          arguments: publish
+          arguments: publish --console verbose
         env:
           GPR_USERNAME: github-actions[bot]
           GPR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
