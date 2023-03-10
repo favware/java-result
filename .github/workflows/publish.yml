@@ -1,13 +1,9 @@
 name: Publish package to the Maven Central Repository and GitHub Packages
 
 on:
-  push:
-    branches:
-      - main
-#on:
-#  release:
-#    types:
-#      - created
+  release:
+    types:
+      - created
 
 jobs:
   publish:
