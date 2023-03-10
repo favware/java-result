@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'tech.favware'
-version = '1.0.0'
+version = '0.0.7-SNAPSHOT'
 description = 'A Java implementation of a Result monad inspired by Rust\'s Result struct'
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 
@@ -82,8 +82,8 @@ publishing {
     repositories {
         maven {
             name = "OSSHR"
-//            url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots")
-            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
+            url = uri("https://s01.oss.sonatype.org/content/repositories/snapshots")
+//            url = uri("https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/")
             credentials {
                 username = project.findProperty("osshr.user") ?: System.getenv("OSSHR_USERNAME")
                 password = project.findProperty("osshr.key") ?: System.getenv("OSSHR_TOKEN")
