@@ -1,9 +1,12 @@
 name: Publish package to the Maven Central Repository and GitHub Packages
 
 on:
-  release:
-    types:
-      - created
+#  release:
+#    types:
+#      - created
+  push:
+    branches:
+      - main
 
 jobs:
   publish:
@@ -28,3 +31,5 @@ jobs:
           GPR_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           OSSHR_USERNAME: ${{ secrets.OSSHR_USERNAME }}
           OSSHR_TOKEN: ${{ secrets.OSSHR_TOKEN }}
+          PGP_SIGNING_KEY: ${{ secrets.PGP_SIGNING_KEY }}
+          PGP_SIGNING_PASSWORD: ${{ secrets.PGP_SIGNING_PASSWORD }}
