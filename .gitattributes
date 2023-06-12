@@ -1,5 +1,5 @@
-# These are explicitly windows files and should use crlf
-gradlew.bat           text eol=crlf
+# All files are checked into the repo with LF
+* text=auto
 
-# Set all other files to use lf line endings
-* text eol=lf
+# These files are checked out using CRLF locally
+*.bat eol=crlf
