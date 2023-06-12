@@ -28,12 +28,8 @@ jobs:
           distribution: ${{ matrix.java-distribution }}
           java-version: ${{ matrix.java }}
           cache: gradle
-      - name: print Event Context
-        run: echo $EVENT_CONTEXT
-        env:
-          EVENT_CONTEXT: ${{ toJSON(github) }}
       - name: Build Java Code [Self]
-        if: github.repository_owner == 'favware'
+        if: ! github.event.pull_request.head.repo.fork
         uses: gradle/gradle-build-action@v2
         with:
           arguments: build
@@ -41,7 +37,7 @@ jobs:
           PGP_SIGNING_KEY: ${{ secrets.PGP_SIGNING_KEY }}
           PGP_SIGNING_PASSWORD: ${{ secrets.PGP_SIGNING_PASSWORD }}
       - name: Build Java Code [Fork]
-        if: github.repository_owner != 'favware'
+        if: github.event.pull_request.head.repo.fork
         uses: gradle/gradle-build-action@v2
         with:
           arguments: build
