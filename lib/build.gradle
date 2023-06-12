@@ -38,6 +38,8 @@ tasks.withType(Javadoc).configureEach {
 }
 
 signing {
+    required { gradle.taskGraph.hasTask("publish") }
+
     def signingKey = project.findProperty("signing.key") ?: System.getenv("PGP_SIGNING_KEY")
     def signingPassword = project.findProperty("signing.password") ?: System.getenv("PGP_SIGNING_PASSWORD")
     useInMemoryPgpKeys(signingKey, signingPassword)
