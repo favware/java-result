@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.1.0](https://github.com/favware/java-result/compare/v1.0.0...v1.1.0) - (2023-06-12)
+
+## 📝 Documentation
+
+- **readme:** Update about blurb ([c2d3e86](https://github.com/favware/java-result/commit/c2d3e8699c7f2e81bb0370a8bf43fef530c7c6bc))
+
+## 🚀 Features
+
+- Add `mapError` api (#10) ([fd735a8](https://github.com/favware/java-result/commit/fd735a87fbb5bd13b2cc13ade7bca6dba677cec7))
+
 # [1.0.0](https://github.com/favware/java-result/tree/1.0.0) - (2023-03-10)
 
 ## 🏠 Refactor

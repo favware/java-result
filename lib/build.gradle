@@ -5,7 +5,7 @@ plugins {
 }
 
 group = 'tech.favware'
-version = '1.0.0'
+version = '1.1.0'
 description = 'A Java implementation of a Result monad inspired by Rust\'s Result struct'
 java.sourceCompatibility = JavaVersion.VERSION_1_8
 

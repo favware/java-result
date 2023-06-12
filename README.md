@@ -38,7 +38,7 @@ code of all open pull requests.
 <dependency>
     <groupId>tech.favware</groupId>
     <artifactId>result</artifactId>
-    <version>1.0.0</version>
+    <version>1.1.0</version>
 </dependency>
 ```
 
@@ -48,7 +48,7 @@ code of all open pull requests.
 
 ```groovy
 dependencies {
-    implementation 'tech.favware:result:1.0.0'
+    implementation 'tech.favware:result:1.1.0'
 }
 ```
 
@@ -56,7 +56,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("tech.favware:result:1.0.0")
+    implementation("tech.favware:result:1.1.0")
 }
 ```
 
