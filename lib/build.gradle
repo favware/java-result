@@ -37,6 +37,12 @@ tasks.withType(Javadoc).configureEach {
     options.encoding = 'UTF-8'
 }
 
+tasks.whenTaskAdded { task ->
+    if (task.name.contains("signArchives")) {
+        task.enabled = true
+    }
+}
+
 signing {
     def signingKey = project.findProperty("signing.key") ?: System.getenv("PGP_SIGNING_KEY")
     def signingPassword = project.findProperty("signing.password") ?: System.getenv("PGP_SIGNING_PASSWORD")

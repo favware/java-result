@@ -36,11 +36,12 @@ jobs:
         env:
           PGP_SIGNING_KEY: ${{ secrets.PGP_SIGNING_KEY }}
           PGP_SIGNING_PASSWORD: ${{ secrets.PGP_SIGNING_PASSWORD }}
+      - name: Prepare building Java Code [Fork]
+        if: github.event.pull_request.head.repo.full_name != github.repository
+        working-directory: lib
+        run: sed -i 's/task.enabled = true/task.enabled = false/g' build.gradle
       - name: Build Java Code [Fork]
         if: github.event.pull_request.head.repo.full_name != github.repository
         uses: gradle/gradle-build-action@v2
         with:
           arguments: build
-        env:
-          PGP_SIGNING_KEY: dummy-key
-          PGP_SIGNING_PASSWORD: dummy-password
