@@ -233,6 +233,20 @@ public interface Result<T> {
 	 * @return {@link Optional} of {@link T}, if {@link Ok}, Empty if {@link Err} or null value
 	 */
 	Optional<T> toOptional();
+
+
+	/**
+	 * Transform {@link Err} or pass on {@link Ok}.
+	 * <pre>
+	 * {@code MyResult.from(NullPointerException::new).mapErr(e -> new ArrayIndexOutOfBoundsException())}
+	 * </pre>
+	 *
+	 * @param f function to apply to ok value.
+	 * @param <U> new type (optional)
+	 * @return {@link Ok}{@code <}{@link U}{@code >} or {@link Err}{@code <}{@link U}{@code >}
+	 */
+	<U> Result<T> mapErr(ResultMapErrFunction<? super Throwable, ? extends U> f);
+
 }
 
 class Ok<T> implements Result<T> {
@@ -338,6 +352,12 @@ class Ok<T> implements Result<T> {
 	public <E extends Throwable> Result<T> raise(Class<E> clazz) throws E {
 		return this;
 	}
+
+	@Override
+	public <U> Result<T> mapErr(ResultMapErrFunction<? super Throwable, ? extends U> f) {
+		Objects.requireNonNull(f);
+		return Result.ok(value);
+	}
 }
 
 
@@ -442,5 +462,15 @@ class Err<T> implements Result<T> {
 				throw (E) t;
 			}
 		});
+	}
+
+	@Override
+	public <U> Result<T> mapErr(ResultMapErrFunction<? super Throwable, ? extends U> f) {
+		Objects.requireNonNull(f);
+		try {
+			return new Err<>((Throwable)f.apply(e));
+		} catch (Throwable t) {
+			return Result.err(t);
+		}
 	}
 }

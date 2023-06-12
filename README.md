@@ -90,6 +90,7 @@ The `Result` api is meant to be similar to the `Optional` type so has the same f
 - `orElseThrow(() -> throw new T)` gets result or on failure will throw checked exception of type `T`
 - `toOptional()` will return `Optional` of success value of `Result` (if not `null`), otherwise it will return an
   empty `Optional`
+- `mapErr(e)` maps the failure value `e` to a new error type or otherwise passes the success forward.
 
 ## Contributors
 

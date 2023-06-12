@@ -311,4 +311,21 @@ class ResultTest {
 
 		assertEquals("ok", t.unwrap());
 	}
+
+	@Test
+	void itShouldMapErrOnErr() throws Throwable {
+		Result<String> t = Result.from(() -> {
+			throw new IllegalStateException();
+		});
+		Result<String> t2 = t.mapErr(e -> new NullPointerException());
+		assertThrows(NullPointerException.class, t2::unwrap);
+	}
+
+	@Test
+	void itShouldNotMapErrOnOk() throws Throwable {
+		Result<String> t = Result.ok("ok");
+		Result<String> t2 = t.mapErr(e -> new NullPointerException());
+
+		assertEquals("ok", t2.unwrap());
+	}
 }
