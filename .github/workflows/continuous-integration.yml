@@ -28,6 +28,10 @@ jobs:
           distribution: ${{ matrix.java-distribution }}
           java-version: ${{ matrix.java }}
           cache: gradle
+      - name: print Event Context
+        run: echo $EVENT_CONTEXT
+        env:
+          EVENT_CONTEXT: ${{ toJSON(github) }}
       - name: Build Java Code [Self]
         if: github.event.pull_request.head.repo.full_name == github.repository
         uses: gradle/gradle-build-action@v2
