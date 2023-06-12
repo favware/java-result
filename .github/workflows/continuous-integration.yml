@@ -29,7 +29,7 @@ jobs:
           java-version: ${{ matrix.java }}
           cache: gradle
       - name: Build Java Code [Self]
-        if: ! github.event.pull_request.head.repo.fork
+        if: github.event.pull_request.head.repo.full_name == github.repository
         uses: gradle/gradle-build-action@v2
         with:
           arguments: build
@@ -37,7 +37,7 @@ jobs:
           PGP_SIGNING_KEY: ${{ secrets.PGP_SIGNING_KEY }}
           PGP_SIGNING_PASSWORD: ${{ secrets.PGP_SIGNING_PASSWORD }}
       - name: Build Java Code [Fork]
-        if: github.event.pull_request.head.repo.fork
+        if: github.event.pull_request.head.repo.full_name != github.repository
         uses: gradle/gradle-build-action@v2
         with:
           arguments: build
