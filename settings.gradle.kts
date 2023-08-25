@@ -1,9 +1,10 @@
 plugins {
-    id "com.gradle.enterprise" version "3.14.1"
+    id("com.gradle.enterprise") version "3.14.1"
 }
 
-rootProject.name = 'result'
-include 'lib'
+rootProject.name = "result"
+
+include("lib")
 
 gradleEnterprise {
     if (System.getenv("CI") != null) {

@@ -42,9 +42,9 @@ jobs:
         shell: bash
         run: |
           if [ $OS = 'macos-latest' ]; then
-            sed -i '' 's/task.enabled = true/task.enabled = false/g' build.gradle
+            sed -i '' 's/this.enabled = true/this.enabled = false/g' build.gradle.kts
           else
-            sed -i 's/task.enabled = true/task.enabled = false/g' build.gradle
+            sed -i 's/this.enabled = true/this.enabled = false/g' build.gradle.kts
           fi
         env:
           OS: ${{ matrix.os }}
