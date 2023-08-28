@@ -25,6 +25,9 @@ jobs:
 
       - name: Autobuild
         uses: github/codeql-action/autobuild@v2
+        env:
+          PGP_SIGNING_KEY: ${{ secrets.PGP_SIGNING_KEY }}
+          PGP_SIGNING_PASSWORD: ${{ secrets.PGP_SIGNING_PASSWORD }}
 
       - name: Perform CodeQL Analysis
         uses: github/codeql-action/analyze@v2
