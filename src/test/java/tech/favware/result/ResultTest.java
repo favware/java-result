@@ -194,7 +194,7 @@ class ResultTest {
 
 	@Test
 	void isShouldPassOkOnlyIfPredicateIsTrue() {
-		Result<String> t1 = Result.from(() -> "yo mama").filter(s -> s.length() > 0);
+		Result<String> t1 = Result.from(() -> "yo mama").filter(s -> !s.isEmpty());
 		Result<String> t2 = Result.from(() -> "yo mama").filter(s -> false);
 
 		assertTrue(t1.isOk());

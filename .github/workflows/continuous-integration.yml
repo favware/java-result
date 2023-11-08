@@ -38,7 +38,6 @@ jobs:
           PGP_SIGNING_PASSWORD: ${{ secrets.PGP_SIGNING_PASSWORD }}
       - name: Prepare building Java Code [Fork]
         if: github.event.pull_request != null && github.event.pull_request.head.repo.full_name != github.repository
-        working-directory: lib
         shell: bash
         run: |
           if [ $OS = 'macos-latest' ]; then

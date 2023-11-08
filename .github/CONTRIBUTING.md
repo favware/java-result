@@ -29,7 +29,7 @@ You can find the `key id` by running `gpg --list-keys`
 Once you have the keys exported you can copy the `gradle.properties.template` file
 to `gradle.properties` and fill in the `signing.key`, and `signing.password` with the correct values.
 
-Alternatively you can set `task.enabled` to `false` in `lib/build.gradle` to disable signing:
+Alternatively you can set `task.enabled` to `false` in `build.gradle.kts` to disable signing:
 ```gradle
 tasks.whenTaskAdded { task ->
     if (task.name.contains("signArchives")) {

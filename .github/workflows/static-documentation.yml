@@ -41,15 +41,15 @@ jobs:
           PGP_SIGNING_PASSWORD: ${{ secrets.PGP_SIGNING_PASSWORD }}
       - name: Add static files
         run: |
-          printf "User-agent: *\nDisallow:" > lib/build/docs/javadoc/robots.txt
-          printf "This file prevents GitHub Pages from using Jekyll." >> lib/build/docs/javadoc/.nojekyll
-          cp .gitignore lib/build/docs/javadoc
-          cp LICENSE.md lib/build/docs/javadoc
-          cp README.md lib/build/docs/javadoc
+          printf "User-agent: *\nDisallow:" > build/docs/javadoc/robots.txt
+          printf "This file prevents GitHub Pages from using Jekyll." >> build/docs/javadoc/.nojekyll
+          cp .gitignore build/docs/javadoc
+          cp LICENSE.md build/docs/javadoc
+          cp README.md build/docs/javadoc
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v1
         with:
-          path: lib/build/docs/javadoc
+          path: build/docs/javadoc
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v2

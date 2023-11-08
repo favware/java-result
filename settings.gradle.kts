@@ -4,8 +4,6 @@ plugins {
 
 rootProject.name = "result"
 
-include("lib")
-
 gradleEnterprise {
     if (System.getenv("CI") != null) {
         buildScan {
