@@ -47,7 +47,7 @@ jobs:
           cp LICENSE.md build/docs/javadoc
           cp README.md build/docs/javadoc
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v2
         with:
           path: build/docs/javadoc
       - name: Deploy to GitHub Pages
