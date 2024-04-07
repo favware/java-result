@@ -30,7 +30,7 @@ jobs:
           cache: gradle
       - name: Build Java Code [Self]
         if: github.event.pull_request == null || github.event.pull_request.head.repo.full_name == github.repository
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: build
         env:
@@ -49,6 +49,6 @@ jobs:
           OS: ${{ matrix.os }}
       - name: Build Java Code [Fork]
         if: github.event.pull_request != null && github.event.pull_request.head.repo.full_name != github.repository
-        uses: gradle/gradle-build-action@v2
+        uses: gradle/gradle-build-action@v3
         with:
           arguments: build
