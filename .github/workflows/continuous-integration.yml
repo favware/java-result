@@ -19,6 +19,9 @@ jobs:
         exclude:
           - java: 8
             java-distribution: microsoft
+          - java: 8
+            java-distribution: temurin
+            os: macos-latest
     steps:
       - name: Checkout Project
         uses: actions/checkout@v4
