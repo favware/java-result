@@ -13,3 +13,8 @@ bin/
 
 *.DS_Store
 Thumbs.db
+
+# NodeJS files
+.yarn/install-state.gz
+.yarn/build-state.yml
+node_modules/
