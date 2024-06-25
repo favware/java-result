@@ -3,6 +3,7 @@ packagePath: .
 commitMessageTemplate: 'chore(release): release {{new-version}}'
 tagTemplate: v{{new-version}}
 identifierBase: false
+skipAutomaticBump: true
 pushTag: true
 githubRelease: true
 githubReleaseLatest: true
