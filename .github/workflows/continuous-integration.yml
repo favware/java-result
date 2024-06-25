@@ -31,11 +31,11 @@ jobs:
           distribution: ${{ matrix.java-distribution }}
           java-version: ${{ matrix.java }}
           cache: gradle
+      - name: Setup Gradle
+        uses: gradle/actions/setup-gradle@v3
       - name: Build Java Code [Self]
         if: github.event.pull_request == null || github.event.pull_request.head.repo.full_name == github.repository
-        uses: gradle/gradle-build-action@v3
-        with:
-          arguments: build
+        run: ./gradlew build
         env:
           PGP_SIGNING_KEY: ${{ secrets.PGP_SIGNING_KEY }}
           PGP_SIGNING_PASSWORD: ${{ secrets.PGP_SIGNING_PASSWORD }}
@@ -52,6 +52,4 @@ jobs:
           OS: ${{ matrix.os }}
       - name: Build Java Code [Fork]
         if: github.event.pull_request != null && github.event.pull_request.head.repo.full_name != github.repository
-        uses: gradle/gradle-build-action@v3
-        with:
-          arguments: build
+        run: ./gradlew build

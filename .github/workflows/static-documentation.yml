@@ -33,9 +33,9 @@ jobs:
           java-version: 8
           cache: gradle
       - name: Generate Javadoc
-        uses: gradle/gradle-build-action@v3
-        with:
-          arguments: javadoc
+        uses: gradle/actions/setup-gradle@v3
+      - name: Generate Javadoc
+        run: ./gradlew javadoc
         env:
           PGP_SIGNING_KEY: ${{ secrets.PGP_SIGNING_KEY }}
           PGP_SIGNING_PASSWORD: ${{ secrets.PGP_SIGNING_PASSWORD }}
