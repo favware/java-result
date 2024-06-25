@@ -50,10 +50,14 @@ tasks.whenTaskAdded {
     }
 }
 
+tasks.withType<PublishToMavenRepository>().configureEach() {
+    dependsOn("signArchives")
+}
+
 signing {
     val signingKey: String = project.findProperty("signing.key") as String? ?: System.getenv("PGP_SIGNING_KEY")
     val signingPassword: String = project.findProperty("signing.password") as String?
-            ?: System.getenv("PGP_SIGNING_PASSWORD")
+        ?: System.getenv("PGP_SIGNING_PASSWORD")
     useInMemoryPgpKeys(signingKey, signingPassword)
 
     sign(configurations.getByName("archives"))
