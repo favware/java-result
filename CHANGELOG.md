@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file.
 
+# [1.2.0](https://github.com/favware/java-result/compare/v1.1.0...v1.2.0) - (2024-06-25)
+
+## 🏠 Refactor
+
+- Split Ok and Err from inner-classes to separate files ([0b4ff38](https://github.com/favware/java-result/commit/0b4ff38189d0ebb809e0096eb1d6e9d5ed25cb5b))
+- Move `src` out of `lib` ([2b6f45e](https://github.com/favware/java-result/commit/2b6f45ef23fc115ed294b9d00e9f1e16fae49343))
+
+## 🚀 Features
+
+- Add `Result.match` to match ok and error branches ([752a19e](https://github.com/favware/java-result/commit/752a19e0fb8ea56145287033c519b40e9409565f))
+
 # [1.1.0](https://github.com/favware/java-result/compare/v1.0.0...v1.1.0) - (2023-06-12)
 
 ## 📝 Documentation
