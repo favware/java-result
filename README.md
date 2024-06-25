@@ -38,7 +38,7 @@ code of all open pull requests.
 <dependency>
     <groupId>tech.favware</groupId>
     <artifactId>result</artifactId>
-    <version>1.1.0</version>
+    <version>1.2.0</version>
 </dependency>
 ```
 
@@ -48,7 +48,7 @@ code of all open pull requests.
 
 ```groovy
 dependencies {
-    implementation 'tech.favware:result:1.1.0'
+    implementation 'tech.favware:result:1.2.0'
 }
 ```
 
@@ -56,7 +56,7 @@ dependencies {
 
 ```kotlin
 dependencies {
-    implementation("tech.favware:result:1.1.0")
+    implementation("tech.favware:result:1.2.0")
 }
 ```
 
@@ -91,6 +91,8 @@ The `Result` api is meant to be similar to the `Optional` type so has the same f
 - `toOptional()` will return `Optional` of success value of `Result` (if not `null`), otherwise it will return an
   empty `Optional`
 - `mapErr(e)` maps the failure value `e` to a new error type or otherwise passes the success forward.
+- `match((x, y)` Takes the result of the `Result` and applies the first function to the success value or the second
+  function to the failure value. Transforms the return type to the return type of the applied function.
 
 ## Contributors
 
