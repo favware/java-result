@@ -116,5 +116,17 @@ class Ok<T> implements Result<T> {
 		Objects.requireNonNull(f);
 		return Result.ok(value);
 	}
+
+	@Override
+	public <U> U match(final Function<? super T, ? super U> okAction) {
+		return this.match(okAction, null);
+	}
+
+	@Override
+	@SuppressWarnings("unchecked")
+	public <U> U match(final Function<? super T, ? super U> okAction, Supplier<? extends U> errorAction) {
+		Objects.requireNonNull(okAction);
+		return (U) okAction.apply(value);
+	}
 }
 

@@ -118,4 +118,15 @@ class Err<T> implements Result<T> {
 			return Result.err(t);
 		}
 	}
+
+	@Override
+	public <U> U match(Function<? super T, ? super U> okAction) {
+		throw new IllegalArgumentException("Cannot short circuit match providing only an ok branch if the wrapped Result is an Err");
+	}
+
+	@Override
+	public <U> U match(Function<? super T, ? super U> okAction, Supplier<? extends U> errorAction) {
+		Objects.requireNonNull(errorAction);
+		return errorAction.get();
+	}
 }

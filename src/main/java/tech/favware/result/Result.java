@@ -1,6 +1,5 @@
 package tech.favware.result;
 
-import java.util.NoSuchElementException;
 import java.util.Objects;
 import java.util.Optional;
 import java.util.function.Function;
@@ -238,7 +237,7 @@ public interface Result<T> {
 	/**
 	 * Transform {@link Err} or pass on {@link Ok}.
 	 * <pre>
-	 * {@code MyResult.from(NullPointerException::new).mapErr(e -> new ArrayIndexOutOfBoundsException())}
+	 * {@code Result.from(NullPointerException::new).mapErr(e -> new ArrayIndexOutOfBoundsException())}
 	 * </pre>
 	 *
 	 * @param f function to apply to ok value.
@@ -246,4 +245,60 @@ public interface Result<T> {
 	 * @return {@link Ok}{@code <}{@link U}{@code >} or {@link Err}{@code <}{@link U}{@code >}
 	 */
 	<U> Result<T> mapErr(ResultMapErrFunction<? super Throwable, ? extends U> f);
+
+	/**
+	 * Runs {@code okAction} function if self is {@link Ok}
+	 *
+	 * <pre>
+	 * {@code
+	 *   String resolved = Result.from(() -> "Luke").<String>match((x) -> x);
+	 *   // Equals "Luke"
+	 * }
+	 * </pre>
+	 *
+	 * <pre>
+	 * {@code
+	 *  Result<String> t = Result.from(() -> { throw new IllegalStateException(); });
+	 *  String t2 = t.match((value) -> value);
+	 * // Equals "Skywalker"
+	 * }
+	 * </pre>
+	 *
+	 * @param <U> The return type of the match when the {@link Result} is an {@link Ok}
+	 * @param okAction The action to be performed, if an {@link Ok} is wrapped.
+	 *
+	 * @return The result of the matched branch
+	 */
+	<U> U match(Function<? super T, ? super U> okAction);
+
+	/**
+	 * Runs {@code okAction} function if self is {@link Ok}, otherwise runs {@code errorAction} function.
+	 *
+	 * <pre>
+	 * {@code
+	 *   String resolved = Result.from(() -> "Luke").<String>match((x) -> x, () -> "Skywalker");
+	 *   // Equals "Luke"
+	 * }
+	 * </pre>
+	 *
+	 * <pre>
+	 * {@code
+	 *  Result<String> t = Result.from(() -> { throw new IllegalStateException(); });
+	 *  String t2 = t.match(
+	 * 				(value) -> value,
+	 * 				() -> "error"
+	 * 	);
+	 * // Equals "Skywalker"
+	 * }
+	 * </pre>
+	 *
+	 * @param <U> The return type of the matched branch
+	 * @param okAction The action to be performed, if an {@link Ok} is wrapped.
+	 * @param errorAction The action to be performed, if an {@link Err} is wrapped.
+	 *
+	 * @return The result of the matched branch
+	 */
+	<U> U match(Function<? super T, ? super U> okAction, Supplier<? extends U> errorAction);
+
+
 }

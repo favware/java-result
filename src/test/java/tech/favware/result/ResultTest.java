@@ -328,4 +328,57 @@ class ResultTest {
 
 		assertEquals("ok", t2.unwrap());
 	}
+
+	@Test
+	void itShouldMatchOkToValue() {
+		Result<String> t = Result.from(() -> "hey");
+
+		String t2 = t.match(
+				(value) -> value,
+				() -> "jude"
+		);
+
+		assertEquals("hey", t2);
+	}
+
+	@Test
+	void itShouldMatchOkToValueWithoutErrorBranch() {
+		Result<String> t = Result.from(() -> "hey");
+
+		String t2 = t.match(
+				(value) -> value
+		);
+
+		assertEquals("hey", t2);
+	}
+
+	@Test
+	void itShouldMatchErrToError() {
+		Result<String> t = Result.from(() -> {
+			throw new IllegalStateException();
+		});
+
+		String t2 = t.match(
+				(value) -> value,
+				() -> "error"
+		);
+
+		assertEquals("error", t2);
+	}
+
+	@Test
+	void itShouldMatchErrToErrorRethrows() {
+		Result<String> t = Result.from(() -> {
+			throw new IllegalStateException();
+		});
+
+		assertThrows(RuntimeException.class, () ->
+				t.match(
+						(value) -> value,
+						() -> {
+							throw new RuntimeException("error");
+						}
+				)
+		);
+	}
 }
