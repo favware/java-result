@@ -28,7 +28,7 @@ jobs:
           cache: yarn
           registry-url: https://registry.yarnpkg.com/
       - name: Setup Gradle
-        uses: gradle/actions/setup-gradle@v3
+        uses: gradle/actions/setup-gradle@v4
       - name: Install Dependencies
         run: yarn --immutable
       - name: Configure Git
