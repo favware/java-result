@@ -13,7 +13,7 @@
   "devDependencies": {
     "@commitlint/cli": "^19.5.0",
     "@commitlint/config-conventional": "^19.5.0",
-    "@favware/cliff-jumper": "^4.1.0"
+    "@favware/cliff-jumper": "^5.0.0"
   },
   "commitlint": {
     "extends": [
