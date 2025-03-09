@@ -11,8 +11,8 @@
     "check-update": "cliff-jumper --dry-run --verbose"
   },
   "devDependencies": {
-    "@commitlint/cli": "^19.7.1",
-    "@commitlint/config-conventional": "^19.7.1",
+    "@commitlint/cli": "^19.8.0",
+    "@commitlint/config-conventional": "^19.8.0",
     "@favware/cliff-jumper": "^6.0.0"
   },
   "commitlint": {
