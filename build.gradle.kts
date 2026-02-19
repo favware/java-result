@@ -20,7 +20,7 @@ repositories {
     mavenLocal()
 }
 
-val junitVersion = "5.9.2"
+val junitVersion = "5.14.3"
 
 dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:${junitVersion}")
