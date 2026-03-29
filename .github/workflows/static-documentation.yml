@@ -33,7 +33,7 @@ jobs:
           java-version: 8
           cache: gradle
       - name: Generate Javadoc
-        uses: gradle/actions/setup-gradle@v5
+        uses: gradle/actions/setup-gradle@v6
       - name: Generate Javadoc
         run: ./gradlew javadoc
         env:
