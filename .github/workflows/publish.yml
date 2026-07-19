@@ -22,7 +22,7 @@ jobs:
           java-version: 8
           cache: gradle
       - name: Use Node.js v20
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v7
         with:
           node-version: 24
           cache: yarn
